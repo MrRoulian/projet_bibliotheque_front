@@ -4,13 +4,14 @@
 
 export const environment = {
   production: false,
-  firebaseConfig: {
-    apiKey: 'AIzaSyD07Sdvi8E9nHoiFxe0AmFgGbXIgjveDhc',
-    authDomain: 'album-5c66b.firebaseapp.com',
-    databaseURL: 'https://album-5c66b.firebaseio.com',
-    projectId: 'album-5c66b',
-    storageBucket: 'album-5c66b.appspot.com',
-    messagingSenderId: 'xxxxxxxxxxxxxx'
+  backend: {
+    protocol: 'http',
+    host: '127.0.0.1',
+    port: '3000',
+    endpoints: {
+      allAlbum: '/album',
+      oneAlbum: '/album/:id',
+    }
   }
 };
 

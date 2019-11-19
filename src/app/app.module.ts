@@ -7,15 +7,10 @@ import { AlbumsComponent } from './albums/albums.component';
 import { AlbumComponent } from './album/album.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-/* Firebase services */
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { environment } from '../environments/environment';
-
 /* Auth service */
 import { AuthenticationService } from './shared/authentication.service';
 import {AngularFireStorageModule} from '@angular/fire/storage';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,10 +22,9 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireAuthModule,
-    AngularFirestoreModule,
-    AngularFireStorageModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]

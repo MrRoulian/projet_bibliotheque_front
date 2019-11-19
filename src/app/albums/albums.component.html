@@ -22,14 +22,14 @@
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
                         <h4 class="card-text">
-                            <a routerLink="/album/{{album.payload.doc.id}}">
-                                {{album.payload.doc.data().name}}
+                            <a routerLink="/album/{{album.id}}">
+                                <img src="{{album.photo}}" width="100%">
                             </a>
                         </h4>
                         <p style="height: 20px; overflow-y: auto;">
-                            {{album.payload.doc.data().description}}
+                            {{album.description}}
                         </p>
-                        <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{album.payload.doc.data().author}}</span></div>
+                        <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{album.auteur}}</span></div>
                     </div>
                 </div>
             </div>

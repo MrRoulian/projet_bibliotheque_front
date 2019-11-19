@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {AlbumService} from '../album.service';
+import {Photo} from '../shared/inerfaces/album.interface';
 
 @Component({
   selector: 'app-album',
@@ -11,6 +12,8 @@ export class AlbumComponent implements OnInit {
   private id;
   public album;
   public photos;
+  private _occup: boolean[];
+
 
   private fileToUpload = null;
 
@@ -22,7 +25,11 @@ export class AlbumComponent implements OnInit {
 
         this.album = this.albumService.getAlbum(this.id).subscribe(album => (this.album = album));
 
-        this.photos = this.albumService.getPhotos(this.id).subscribe(photos => (this.photos = photos));
+        // this.photos = this.albumService.getPhotos(this.id).subscribe(photos => (this.photos = photos));
+
+        for (let i = 0 ; i < 10 ; i++ ) {
+          this.photos[i] = this.albumService.getPhoto(this.id, i.toString()).subscribe(p => (this.photos[i] = p));
+        }
       });
   }
 
@@ -31,7 +38,12 @@ export class AlbumComponent implements OnInit {
   }
 
   addPhoto(event: any) {
+    /*
     if (this.fileToUpload && event.target.title.value && event.target.author.value) {
+
+      this.albumService.setPhoto()
+
+
         this.albumService.uploadImage(this.fileToUpload)
             .catch(a => {
               alert('Une erreur est survenue !');
@@ -51,7 +63,7 @@ export class AlbumComponent implements OnInit {
               }
         });
     }
-
+    */
     return false;
   }
 

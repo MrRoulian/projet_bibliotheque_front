@@ -17,7 +17,7 @@
     <div class="container">
 
         <p id="breadcrumb">
-            <a href="./">Accueil</a> > <span>{{album.payload.data().name}}</span>
+            <a href="./">Accueil</a> > <span>{{album.titre}}</span>
         </p>
 
         <h2>Liste des photos</h2>
@@ -25,15 +25,15 @@
         <div class="row">
             <div class="col-md-4" *ngFor="let photo of photos">
                 <div class="card mb-4 shadow-sm">
-                    <img height="256px" src="{{ getPhotoUrl(photo) }}"/>
+                    <img height="256px" src="{{ photo.path }}"/>
                     <div class="card-body">
                         <h4 class="card-text">
-                            {{photo.payload.doc.data().name}}
+                            {{photo.titre}}
                         </h4>
                         <p style="height: 20px; overflow-y: auto;">
-                            {{photo.payload.doc.data().description}}
+                            {{photo.description}}
                         </p>
-                        <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photo.payload.doc.data().author}}</span></div>
+                        <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photo.auteur}}</span></div>
                     </div>
                 </div>
             </div>
