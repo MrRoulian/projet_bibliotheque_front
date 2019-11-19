@@ -1,0 +1,38 @@
+<main id="main">
+    <section class="jumbotron text-center mb-0">
+        <div class="col-md-6" style="margin: 0 auto;">
+            <p>Ajouter un album :</p>
+            <form (submit)="addAlbum($event)">
+                <input class="form-control" id="newalbum" name="newalbum" ngModel placeholder="Nom de l'album" required="required"><br/>
+                <input class="form-control" id="author" name="author" ngModel placeholder="Auteur" required="required"/><br/>
+                <textarea class="form-control" id="description" name="description" ngModel placeholder="Description"></textarea><br/>
+                <button class="form-control btn btn-success" type="submit">Ajouter</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <h2>Mes albums</h2>
+
+        <div class="row">
+            <div class="col-md-4" *ngFor="let album of albums">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-text">
+                            <a routerLink="/album/{{album.payload.doc.id}}">
+                                {{album.payload.doc.data().name}}
+                            </a>
+                        </h4>
+                        <p style="height: 20px; overflow-y: auto;">
+                            {{album.payload.doc.data().description}}
+                        </p>
+                        <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{album.payload.doc.data().author}}</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

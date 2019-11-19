@@ -1,0 +1,42 @@
+<main id="main">
+    <section class="jumbotron text-center mb-0">
+        <div class="col-md-6" style="margin: 0 auto;">
+            <p>Ajouter une photo :</p>
+            <form (submit)="addPhoto($event)">
+                <input class="form-control" id="title" name="title" ngModel placeholder="Nom de la photo" required="required"><br/>
+                <input class="form-control" id="author" name="author" ngModel placeholder="Auteur" required="required"/><br/>
+                <input (change)="setFile($event)" class="form-control" id="file" type="file" name="file" ngModel placeholder="Photo" required="required"/><br/>
+                <textarea class="form-control" id="description" name="description" ngModel placeholder="Description"></textarea><br/>
+                <button class="form-control btn btn-success" type="submit">Ajouter</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <p id="breadcrumb">
+            <a href="./">Accueil</a> > <span>{{album.payload.data().name}}</span>
+        </p>
+
+        <h2>Liste des photos</h2>
+
+        <div class="row">
+            <div class="col-md-4" *ngFor="let photo of photos">
+                <div class="card mb-4 shadow-sm">
+                    <img height="256px" src="{{ getPhotoUrl(photo) }}"/>
+                    <div class="card-body">
+                        <h4 class="card-text">
+                            {{photo.payload.doc.data().name}}
+                        </h4>
+                        <p style="height: 20px; overflow-y: auto;">
+                            {{photo.payload.doc.data().description}}
+                        </p>
+                        <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photo.payload.doc.data().author}}</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
