@@ -1,42 +1,154 @@
 <main id="main">
-    <section class="jumbotron text-center mb-0">
-        <div class="col-md-6" style="margin: 0 auto;">
-            <p>Ajouter une photo :</p>
-            <form (submit)="addPhoto($event)">
-                <input class="form-control" id="title" name="title" ngModel placeholder="Nom de la photo" required="required"><br/>
-                <input class="form-control" id="author" name="author" ngModel placeholder="Auteur" required="required"/><br/>
-                <input (change)="setFile($event)" class="form-control" id="file" type="file" name="file" ngModel placeholder="Photo" required="required"/><br/>
-                <textarea class="form-control" id="description" name="description" ngModel placeholder="Description"></textarea><br/>
-                <button class="form-control btn btn-success" type="submit">Ajouter</button>
-            </form>
-        </div>
-    </section>
+  <section class="jumbotron text-center mb-0">
+    <div class="col-md-6" style="margin: 0 auto;">
+      <p>Ajouter une photo :</p>
+      <form (submit)="addPhoto($event)">
+        <input class="form-control" id="title" name="title" ngModel placeholder="Nom de la photo" required="required"><br/>
+        <input class="form-control" id="author" name="author" ngModel placeholder="Auteur" required="required"/><br/>
+        <input (change)="setFile($event)" class="form-control" id="file" type="file" name="file" ngModel placeholder="Photo" required="required"/><br/>
+        <textarea class="form-control" id="description" name="description" ngModel placeholder="Description"></textarea><br/>
+        <button class="form-control btn btn-success" type="submit">Ajouter</button>
+      </form>
+    </div>
+  </section>
 </main>
 
 <div class="album py-5 bg-light">
-    <div class="container">
+  <div class="container">
 
-        <p id="breadcrumb">
-            <a href="./">Accueil</a> > <span>{{album.titre}}</span>
-        </p>
+    <p id="breadcrumb">
+      <a href="./">Accueil</a> > <span>{{album.titre}}</span>
+    </p>
 
-        <h2>Liste des photos</h2>
+    <h2>Liste des photos</h2>
 
-        <div class="row">
-            <div class="col-md-4" *ngFor="let photo of photos">
-                <div class="card mb-4 shadow-sm">
-                    <img height="256px" src="{{ photo.path }}"/>
-                    <div class="card-body">
-                        <h4 class="card-text">
-                            {{photo.titre}}
-                        </h4>
-                        <p style="height: 20px; overflow-y: auto;">
-                            {{photo.description}}
-                        </p>
-                        <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photo.auteur}}</span></div>
-                    </div>
-                </div>
-            </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img height="256px" src="{{ photos[0].path }}"/>
+          <div class="card-body">
+            <h4 class="card-text">
+              {{photos[0].titre}}
+            </h4>
+            <p style="height: 20px; overflow-y: auto;">
+              {{photos[0].description}}
+            </p>
+            <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photos[0].auteur}}</span></div>
+          </div>
         </div>
+
+        <div class="card mb-4 shadow-sm">
+          <img height="256px" src="{{ photos[1].path }}"/>
+          <div class="card-body">
+            <h4 class="card-text">
+              {{photos[1].titre}}
+            </h4>
+            <p style="height: 20px; overflow-y: auto;">
+              {{photos[1].description}}
+            </p>
+            <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photos[1].auteur}}</span></div>
+          </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+          <img height="256px" src="{{ photos[2].path }}"/>
+          <div class="card-body">
+            <h4 class="card-text">
+              {{photos[2].titre}}
+            </h4>
+            <p style="height: 20px; overflow-y: auto;">
+              {{photos[2].description}}
+            </p>
+            <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photos[2].auteur}}</span></div>
+          </div>
+        </div>
+        <div class="card mb-4 shadow-sm">
+          <img height="256px" src="{{ photos[3].path }}"/>
+          <div class="card-body">
+            <h4 class="card-text">
+              {{photos[3].titre}}
+            </h4>
+            <p style="height: 20px; overflow-y: auto;">
+              {{photos[3].description}}
+            </p>
+            <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photos[3].auteur}}</span></div>
+          </div>
+        </div>
+        <div class="card mb-4 shadow-sm">
+          <img height="256px" src="{{ photos[4].path }}"/>
+          <div class="card-body">
+            <h4 class="card-text">
+              {{photos[4].titre}}
+            </h4>
+            <p style="height: 20px; overflow-y: auto;">
+              {{photos[4].description}}
+            </p>
+            <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photos[4].auteur}}</span></div>
+          </div>
+        </div>
+        <div class="card mb-4 shadow-sm">
+          <img height="256px" src="{{ photos[5].path }}"/>
+          <div class="card-body">
+            <h4 class="card-text">
+              {{photos[5].titre}}
+            </h4>
+            <p style="height: 20px; overflow-y: auto;">
+              {{photos[5].description}}
+            </p>
+            <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photos[5].auteur}}</span></div>
+          </div>
+        </div>
+        <div class="card mb-4 shadow-sm">
+          <img height="256px" src="{{ photos[6].path }}"/>
+          <div class="card-body">
+            <h4 class="card-text">
+              {{photos[6].titre}}
+            </h4>
+            <p style="height: 20px; overflow-y: auto;">
+              {{photos[6].description}}
+            </p>
+            <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photos[6].auteur}}</span></div>
+          </div>
+        </div>
+        <div class="card mb-4 shadow-sm">
+          <img height="256px" src="{{ photos[7].path }}"/>
+          <div class="card-body">
+            <h4 class="card-text">
+              {{photos[7].titre}}
+            </h4>
+            <p style="height: 20px; overflow-y: auto;">
+              {{photos[7].description}}
+            </p>
+            <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photos[7].auteur}}</span></div>
+          </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+          <img height="256px" src="{{ photos[8].path }}"/>
+          <div class="card-body">
+            <h4 class="card-text">
+              {{photos[8].titre}}
+            </h4>
+            <p style="height: 20px; overflow-y: auto;">
+              {{photos[8].description}}
+            </p>
+            <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photos[8].auteur}}</span></div>
+          </div>
+        </div>
+
+        <div class="card mb-4 shadow-sm">
+          <img height="256px" src="{{ photos[9].path }}"/>
+          <div class="card-body">
+            <h4 class="card-text">
+              {{photos[9].titre}}
+            </h4>
+            <p style="height: 20px; overflow-y: auto;">
+              {{photos[9].description}}
+            </p>
+            <div class="authorlabel" style="color: gray;">Ajouté par <span style="font-weight: bold;">{{photos[9].auteur}}</span></div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

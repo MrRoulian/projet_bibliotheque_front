@@ -12,8 +12,8 @@ export class AlbumService {
 
   // private property to store all backend URLs
   private readonly _backendURL: any;
-  // private temp: Photo[];
-  // private album: Album;
+  private temp: Photo[];
+  private album: Album;
 
   constructor(private _http: HttpClient) {
     this._backendURL = {};
@@ -76,9 +76,7 @@ export class AlbumService {
 
   /*getPhotos(idAlbum: string): Observable<Photo[]> {
     this.temp = [];
-    this.album = this.getAlbum(idAlbum).pipe(
-      map(_ => _)
-    );
+    this.album =
   }*/
 
 
@@ -140,6 +138,13 @@ export class AlbumService {
 
   update(album: Album): Observable<any>{
     return this._http.put<Album>(this._backendURL.oneAlbum.replace(':id', album.id), album , this._options());
+  }
+
+  delete(idAlbum: string): Observable<string> {
+    return this._http.delete(this._backendURL.onePeople.replace(':id', idAlbum))
+      .pipe(
+        map(_ => idAlbum)
+      );
   }
 
     /*uploadImage(file) {

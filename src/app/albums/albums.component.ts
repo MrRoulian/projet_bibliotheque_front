@@ -29,7 +29,8 @@ export class AlbumsComponent implements OnInit {
         titre: event.target.newalbum.value,
         photo: 'https://images-na.ssl-images-amazon.com/images/I/71YWmrhVCCL._SX425_.jpg',
         description: event.target.description.value,
-      }as Album);
+        auteur: event.target.auteur,
+      } as Album);
 
       /*this.albumService.createAlbum({
           name: event.target.newalbum.value,
