@@ -5,6 +5,7 @@
             <form (submit)="addAlbum($event)">
                 <input class="form-control" id="newalbum" name="newalbum" ngModel placeholder="Nom de l'album" required="required"><br/>
                 <input class="form-control" id="author" name="author" ngModel placeholder="Auteur" required="required"/><br/>
+                <input class="form-control" id="photo" name="photo" ngModel placeholder="Url de l'image" /><br/>
                 <textarea class="form-control" id="description" name="description" ngModel placeholder="Description"></textarea><br/>
                 <button class="form-control btn btn-success" type="submit">Ajouter</button>
             </form>

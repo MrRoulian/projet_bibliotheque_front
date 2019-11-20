@@ -1,5 +1,5 @@
 export interface Album {
-    id: string;
+    id?: string;
     titre: string;
     photo?: string;
     description?: string;
@@ -17,8 +17,8 @@ export interface Album {
 }
 
 export interface Photo {
-    path: string;
-    titre: string;
+    path?: string;
+    titre?: string;
     description?: string;
     auteur?: string;
 }

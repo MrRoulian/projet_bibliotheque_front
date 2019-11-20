@@ -1,27 +1,14 @@
-# ProjetBibliothequeFront
+Voilà les étapes pour installer notre application :
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
+git clone git@github.com:MrRoulian/projet_bibliotheque_back.git projet-back-BAILLY-BELLAHCENE
+yarn install
 
-## Development server
+git clone git@github.com:MrRoulian/projet_bibliotheque_front.git projet-front-BAILLY-BELLAHCENE
+yarn install
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+run mongodb server
+sur robot3t créer une database alb sur la connection par défaut (127.0.0.1:27017) (ou bien changer le fichier de config présent à projet-back/config/default.yml)
+créer la collection albums dedans et copier coller le script d'insertion d'album dans cette collection (le fichier est présent dans le dossier script à la racine du projet back)
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+run le projet back-end (yarn run start) (vous trouverez la doc sur localhost:3000/documentation, vous pouvez configuer cela dans le fichier config vu plus haut)
+puis run le projet front-end (yarn run start) (vous trouverez le site sur localhost:4200 configurable dans le fichier projet-front/src/environments.ts)

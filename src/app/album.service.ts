@@ -38,139 +38,18 @@ export class AlbumService {
   getAlbums(): Observable<Album[]> {
     return this._http.get<Album[]>(this._backendURL.allAlbum);
   }
-/*
-  getPhoto(idAlbum: string, numPhoto: string): Observable<unknown> {
-    switch ( numPhoto ) {
-      case '0' :
-        return from(this._http.get<Album>(this._backendURL.oneAlbum.replace(':id', idAlbum)).pipe(
-          map(_ => _.photo0)
-        ));
-        break;
-      case '1' :
-        return from(this._http.get<Album>(this._backendURL.oneAlbum.replace(':id', idAlbum)).pipe(
-          map(_ => _.photo1)
-        ));
-        break;
-      case '2' :
-        return from(this._http.get<Photo>(this._backendURL.oneAlbum.replace(':id', idAlbum).photo2));
-        break;
-      case '3' :
-        return from(this._http.get<Photo>(this._backendURL.oneAlbum.replace(':id', idAlbum).photo3));
-        break;
-      case '4' :
-        return from(this._http.get<Photo>(this._backendURL.oneAlbum.replace(':id', idAlbum).photo4));
-        break;
-      case '5' :
-        return from(this._http.get<Photo>(this._backendURL.oneAlbum.replace(':id', idAlbum).photo5));
-        break;
-      case '6' :
-        return from(this._http.get<Photo>(this._backendURL.oneAlbum.replace(':id', idAlbum).photo6));
-        break;
-      case '7' :
-        return from(this._http.get<Photo>(this._backendURL.oneAlbum.replace(':id', idAlbum).photo7));
-        break;
-      case '8' :
-        return from(this._http.get<Photo>(this._backendURL.oneAlbum.replace(':id', idAlbum).photo8));
-        break;
-      case '9' :
-        return from(this._http.get<Photo>(this._backendURL.oneAlbum.replace(':id', idAlbum).photo9));
-        break;
-    }
-  }
 
-  getPhotos(idAlbum: string): Observable<Photo[]> {
-    this.temp = [];
-    return undefined; // TODO
-  }
-*/
-
-
-  setPhoto(idAlbum: string, numPhoto: string, photo: Photo): Observable<any> {
-    switch ( numPhoto ) {
-      case '0' :
-        return this._http.put<Album>(this._backendURL.oneAlbum.replace(':id', idAlbum), from(this.getAlbum(idAlbum).pipe(
-          map(_ => _.photo0 = photo)
-        )), this._options());
-        break;
-      case '1' :
-        return this._http.put<Album>(this._backendURL.oneAlbum.replace(':id', idAlbum), from(this.getAlbum(idAlbum).pipe(
-          map(_ => _.photo1 = photo)
-        )), this._options());
-        break;
-      case '2' :
-        return this._http.put<Album>(this._backendURL.oneAlbum.replace(':id', idAlbum), from(this.getAlbum(idAlbum).pipe(
-          map(_ => _.photo2 = photo)
-        )), this._options());
-        break;
-      case '3' :
-        return this._http.put<Album>(this._backendURL.oneAlbum.replace(':id', idAlbum), from(this.getAlbum(idAlbum).pipe(
-          map(_ => _.photo3 = photo)
-        )), this._options());
-        break;
-      case '4' :
-        return this._http.put<Album>(this._backendURL.oneAlbum.replace(':id', idAlbum), from(this.getAlbum(idAlbum).pipe(
-          map(_ => _.photo4 = photo)
-        )), this._options());
-        break;
-      case '5' :
-        return this._http.put<Album>(this._backendURL.oneAlbum.replace(':id', idAlbum), from(this.getAlbum(idAlbum).pipe(
-          map(_ => _.photo5 = photo)
-        )), this._options());
-        break;
-      case '6' :
-        return this._http.put<Album>(this._backendURL.oneAlbum.replace(':id', idAlbum), from(this.getAlbum(idAlbum).pipe(
-          map(_ => _.photo6 = photo)
-        )), this._options());
-        break;
-      case '7' :
-        return this._http.put<Album>(this._backendURL.oneAlbum.replace(':id', idAlbum), from(this.getAlbum(idAlbum).pipe(
-          map(_ => _.photo7 = photo)
-        )), this._options());
-        break;
-      case '8' :
-        return this._http.put<Album>(this._backendURL.oneAlbum.replace(':id', idAlbum), from(this.getAlbum(idAlbum).pipe(
-          map(_ => _.photo8 = photo)
-        )), this._options());
-        break;
-      case '9' :
-        return this._http.put<Album>(this._backendURL.oneAlbum.replace(':id', idAlbum), from(this.getAlbum(idAlbum).pipe(
-          map(_ => _.photo9 = photo)
-        )), this._options());
-        break;
-    }
-  }
-
-  update(album: Album): Observable<any>{
-    return this._http.put<Album>(this._backendURL.oneAlbum.replace(':id', album.id), album , this._options());
+  update(idAlbum: string, album: Album): Observable<any>{
+    return this._http.put<Album>(this._backendURL.oneAlbum.replace(':id', idAlbum), album , this._options());
   }
 
   delete(idAlbum: string): Observable<string> {
-    return this._http.delete(this._backendURL.onePeople.replace(':id', idAlbum))
+    console.log(idAlbum);
+    return this._http.delete(this._backendURL.oneAlbum.replace(':id', idAlbum))
       .pipe(
         map(_ => idAlbum)
       );
   }
-
-    /*uploadImage(file) {
-        const id = Math.random().toString(36).substring(2);
-        const ref = this.firestorage.ref(id);
-        return ref.put(file);
-    }*/
-
-    /*createPhoto(data) {
-        return new Promise<any>((resolve, reject) => {
-            this.firestore
-                .collection('photos')
-                .add({
-                    albumId: data.albumId,
-                    name: data.name,
-                    author: data.author,
-                    description: data.description,
-                    imagePath: data.imagePath
-                })
-                .then(res => {}, err => reject(err));
-        });
-    }*/
 
   /**
    * Function to return request options

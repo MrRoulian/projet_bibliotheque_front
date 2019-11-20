@@ -1,12 +1,14 @@
 <main id="main">
     <section class="jumbotron text-center mb-0">
         <div class="col-md-6" style="margin: 0 auto;">
+          <button class="form-control btn btn-success" (click)="deleteAlbum()">Supprimer l'album</button>
             <p>Ajouter une photo :</p>
             <form (submit)="addPhoto($event)">
                 <input class="form-control" id="title" name="title" ngModel placeholder="Nom de la photo" required="required"><br/>
                 <input class="form-control" id="author" name="author" ngModel placeholder="Auteur" required="required"/><br/>
-                <input (change)="setFile($event)" class="form-control" id="file" type="file" name="file" ngModel placeholder="Photo" required="required"/><br/>
+                <input class="form-control" id="path" name="path" ngModel placeholder="Url de l'image" /><br/>
                 <textarea class="form-control" id="description" name="description" ngModel placeholder="Description"></textarea><br/>
+              <input class="form-control" id="numeroImg" name="numeroImg" ngModel placeholder="Emplacement de l'image, entre 0 et 9" required="required"/><br/>
                 <button class="form-control btn btn-success" type="submit">Ajouter</button>
             </form>
         </div>
