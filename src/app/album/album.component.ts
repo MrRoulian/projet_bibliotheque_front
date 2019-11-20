@@ -119,7 +119,6 @@ export class AlbumComponent implements OnInit {
     }
 
     this._albumService.update(this.id, this._album).subscribe(_ => _);
-    this._album = {} as Album;
   }
 
   deleteAlbum() {
@@ -221,7 +220,6 @@ export class AlbumComponent implements OnInit {
 
     }
     this._albumService.update(this.id, this._album).subscribe(_ => _);
-    this._album = {} as Album;
   }
 
 }
