@@ -21,22 +21,17 @@ export class AlbumsComponent implements OnInit {
 
   addAlbum(event: any) {
     if (event.target.newalbum.value && event.target.author.value) {
-      // todo : vérifier si l'album existe ou pas
-
-      // ensuite, créer l'album dans firebase :
 
       this.albumService.createAlbum({
         titre: event.target.newalbum.value,
         photo: 'https://images-na.ssl-images-amazon.com/images/I/71YWmrhVCCL._SX425_.jpg',
         description: event.target.description.value,
-        auteur: event.target.auteur,
+        auteur: event.target.author.value,
       } as Album);
 
-      /*this.albumService.createAlbum({
-          name: event.target.newalbum.value,
-          author: event.target.author.value,
-          description: event.target.description.value
-      });*/
+      event.target.newalbum.value = '';
+      event.target.description.value = '';
+      event.target.author.value = '';
     }
 
     return false;

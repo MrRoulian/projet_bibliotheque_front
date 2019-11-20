@@ -12,7 +12,6 @@ import {filter} from 'rxjs/operators';
 export class AlbumComponent implements OnInit {
   private id;
   public album;
-  public photos;
   private _occup: boolean[];
 
 
@@ -25,14 +24,6 @@ export class AlbumComponent implements OnInit {
         this.id = params.get('id');
 
         this.album = this.albumService.getAlbum(this.id).subscribe(album => (this.album = album));
-
-        this.photos = this.albumService.getPhoto(this.id, '0').subscribe(photos => (this.photos = photos));
-
-        for (let i = 0 ; i < 10 ; i++ ) {
-          if (this.albumService.getPhoto(this.id, i.toString()) !== undefined) {
-            this.photos[i] = this.albumService.getPhoto(this.id, i.toString()).subscribe(p => (this.photos[i] = p));
-          }
-        }
       });
   }
 
@@ -68,17 +59,6 @@ export class AlbumComponent implements OnInit {
     }
     */
     return false;
-  }
-
-  getPhotoUrl(photo) {
-    const imagePath = photo.payload.doc.data().imagePath;
-    if (imagePath) {
-      const projectId = photo.payload.doc.ref.parent.firestore._databaseId.projectId;
-
-      return 'https://firebasestorage.googleapis.com/v0/b/' + projectId + '.appspot.com/o/' + imagePath + '?alt=media';
-    } else {
-      return 'https://www.labaleine.fr/sites/baleine/files/image-not-found.jpg';
-    }
   }
 
 }
