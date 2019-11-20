@@ -48,7 +48,5 @@ export class AlbumsComponent implements OnInit {
       event.target.description.value = '';
       event.target.author.value = '';
     }
-
-    return false;
   }
 }

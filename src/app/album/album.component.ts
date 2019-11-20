@@ -32,7 +32,6 @@ export class AlbumComponent implements OnInit {
   }
 
   addPhoto(event: any) {
-
     switch (event.target.numeroImg.value) {
       case '0' :
         this._album.photo0 = {
@@ -120,16 +119,109 @@ export class AlbumComponent implements OnInit {
     }
 
     this._albumService.update(this.id, this._album).subscribe(_ => _);
-
-    return false;
+    this._album = {} as Album;
   }
 
   deleteAlbum() {
     if ( confirm('Voulez vous vraiment supprimer cet album ? Ceci est irréversible' ) ) {
       this._albumService.delete(this.id).subscribe(_ => _);
     } else {
-      
+
     }
+  }
+
+  deletePhoto(event: any) {
+    if ( confirm('Voulez vous vraiment supprimer cet photo ? Ceci est irréversible' ) ) {
+      switch (event.target.numeroImgDel.value) {
+        case '0' :
+          this._album.photo0 = {
+            path: '',
+            titre: '',
+            auteur: '',
+            description: '',
+          } as Photo;
+          break;
+        case '1' :
+          this._album.photo1 = {
+            path: '',
+            titre: '',
+            auteur: '',
+            description: '',
+          } as Photo;
+          break;
+        case '2' :
+          this._album.photo2 = {
+            path: '',
+            titre: '',
+            auteur: '',
+            description: '',
+          } as Photo;
+          break;
+        case '3' :
+          this._album.photo3 = {
+            path: '',
+            titre: '',
+            auteur: '',
+            description: '',
+          } as Photo;
+          break;
+        case '4' :
+          this._album.photo4 = {
+            path: '',
+            titre: '',
+            auteur: '',
+            description: '',
+          } as Photo;
+          break;
+        case '5' :
+          this._album.photo5 = {
+            path: '',
+            titre: '',
+            auteur: '',
+            description: '',
+          } as Photo;
+          break;
+        case '6' :
+          this._album.photo6 = {
+            path: '',
+            titre: '',
+            auteur: '',
+            description: '',
+          } as Photo;
+          break;
+        case '7' :
+          this._album.photo7 = {
+            path: '',
+            titre: '',
+            auteur: '',
+            description: '',
+          } as Photo;
+          break;
+        case '8' :
+          this._album.photo8 = {
+            path: '',
+            titre: '',
+            auteur: '',
+            description: '',
+          } as Photo;
+          break;
+        case '9' :
+          this._album.photo9 = {
+            path: '',
+            titre: '',
+            auteur: '',
+            description: '',
+          } as Photo;
+          break;
+        default :
+          alert('Veuillez entrer un numéro entre 0 et 9 qui correspond à l\'emplacement de l\'image dans le champ numéro de l\'image');
+          break;
+      }
+    } else {
+
+    }
+    this._albumService.update(this.id, this._album).subscribe(_ => _);
+    this._album = {} as Album;
   }
 
 }

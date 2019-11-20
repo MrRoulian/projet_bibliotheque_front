@@ -6,11 +6,16 @@
             <form (submit)="addPhoto($event)">
                 <input class="form-control" id="title" name="title" ngModel placeholder="Nom de la photo" required="required"><br/>
                 <input class="form-control" id="author" name="author" ngModel placeholder="Auteur" required="required"/><br/>
-                <input class="form-control" id="path" name="path" ngModel placeholder="Url de l'image" /><br/>
+                <input class="form-control" id="path" name="path" ngModel placeholder="Url de l'image" required="required" /><br/>
                 <textarea class="form-control" id="description" name="description" ngModel placeholder="Description"></textarea><br/>
-              <input class="form-control" id="numeroImg" name="numeroImg" ngModel placeholder="Emplacement de l'image, entre 0 et 9" required="required"/><br/>
+                <input class="form-control" id="numeroImg" name="numeroImg" ngModel placeholder="Emplacement de l'image, entre 0 et 9" required="required"/><br/>
                 <button class="form-control btn btn-success" type="submit">Ajouter</button>
             </form>
+          <p>Supprimé une photo</p>
+          <form (submit)="deletePhoto($event)">
+            <input class="form-control" id="numeroImgDel" name="numeroImgDel" ngModel placeholder="Emplacement de l'image, entre 0 et 9" required="required"/><br/>
+            <button class="form-control btn btn-success" type="submit">Supprimer l'image avec le numéro si dessus</button>
+          </form>
         </div>
     </section>
 </main>
